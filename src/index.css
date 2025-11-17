@@ -1,0 +1,377 @@
+/* Directives Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles de base personnalisés pour EAGLE */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(15, 23, 42, 0.87);
+  background-color: #f8fafc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mode sombre */
+.dark {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f172a;
+}
+
+/* Styles de base améliorés */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+}
+
+/* Conteneur principal de l'application */
+.app-container {
+  @apply min-h-screen bg-gray-100 dark:bg-gray-900;
+}
+
+/* Styles pour les liens */
+a {
+  font-weight: 500;
+  @apply text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300;
+  text-decoration: inherit;
+  transition: color 0.25s;
+}
+
+/* Styles pour les titres */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+h2, h3, h4, h5, h6 {
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+/* Styles pour les boutons par défaut */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s;
+  @apply bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid theme('colors.blue.500');
+  outline-offset: 2px;
+}
+
+/* Styles personnalisés pour les composants EAGLE */
+
+/* Styles pour les cartes de patients */
+.patient-card {
+  @apply bg-white dark:bg-gray-800 shadow-soft hover:shadow-medium;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-200;
+}
+
+.patient-card:hover {
+  @apply transform -translate-y-0.5;
+}
+
+/* Styles pour les indicateurs d'urgence */
+.urgency-indicator {
+  @apply inline-flex items-center justify-center;
+  @apply rounded-full font-semibold text-xs;
+  @apply min-w-6 h-6;
+}
+
+.urgency-1 {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.urgency-2 {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.urgency-3 {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.urgency-4 {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300;
+}
+
+.urgency-5 {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300;
+  @apply animate-pulse;
+}
+
+/* Styles pour la barre latérale */
+.sidebar {
+  @apply bg-white dark:bg-gray-800;
+  @apply border-r border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-300;
+}
+
+.sidebar-item {
+  @apply flex items-center px-3 py-2;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+  @apply transition-colors duration-200;
+}
+
+.sidebar-item.active {
+  @apply bg-blue-50 dark:bg-blue-900/20;
+  @apply text-blue-600 dark:text-blue-400;
+  @apply border-r-2 border-blue-600 dark:border-blue-400;
+}
+
+/* Styles pour les status badges */
+.status-badge {
+  @apply inline-flex items-center px-2 py-1;
+  @apply text-xs font-medium rounded-full;
+}
+
+.status-waiting {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300;
+}
+
+.status-preparing {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.status-ready {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.status-in-consultation {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.status-completed {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300;
+}
+
+/* Styles pour les notifications */
+.notification {
+  @apply fixed top-4 right-4 z-50;
+  @apply bg-white dark:bg-gray-800;
+  @apply shadow-strong border border-gray-200 dark:border-gray-700;
+  @apply rounded-lg p-4 max-w-sm;
+  @apply transform transition-all duration-300;
+}
+
+.notification.success {
+  @apply border-green-500 bg-green-50 dark:bg-green-900/20;
+}
+
+.notification.error {
+  @apply border-red-500 bg-red-50 dark:bg-red-900/20;
+}
+
+.notification.warning {
+  @apply border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20;
+}
+
+.notification.info {
+  @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+}
+
+/* Styles pour les modales */
+.modal-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40;
+  @apply flex items-center justify-center p-4;
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  @apply bg-white dark:bg-gray-800;
+  @apply rounded-xl shadow-strong;
+  @apply max-w-lg w-full max-h-screen overflow-y-auto;
+  @apply transform transition-all duration-300;
+}
+
+/* Styles pour les formulaires */
+.form-input {
+  @apply w-full px-3 py-2;
+  @apply border border-gray-300 dark:border-gray-600;
+  @apply rounded-md shadow-sm;
+  @apply bg-white dark:bg-gray-800;
+  @apply text-gray-900 dark:text-gray-100;
+  @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  @apply transition-colors duration-200;
+}
+
+.form-label {
+  @apply block text-sm font-medium;
+  @apply text-gray-700 dark:text-gray-300;
+  @apply mb-1;
+}
+
+/* Styles pour les tableaux */
+.data-table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.data-table thead {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.data-table th {
+  @apply px-6 py-3 text-left text-xs font-medium;
+  @apply text-gray-500 dark:text-gray-400;
+  @apply uppercase tracking-wider;
+}
+
+.data-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm;
+  @apply text-gray-900 dark:text-gray-100;
+}
+
+.data-table tbody tr {
+  @apply bg-white dark:bg-gray-900;
+  @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  @apply transition-colors duration-150;
+}
+
+/* Animations personnalisées */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+/* Utilitaires pour la gestion des barres de défilement */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Styles pour l'impression */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+  
+  .patient-card {
+    @apply border border-gray-300 shadow-none;
+    break-inside: avoid;
+  }
+}
+
+/* Styles pour les écrans de petite taille */
+@media (max-width: 640px) {
+  .app-container {
+    @apply px-2;
+  }
+  
+  .sidebar {
+    @apply absolute inset-y-0 left-0 z-30;
+    @apply transform -translate-x-full;
+  }
+  
+  .sidebar.open {
+    @apply translate-x-0;
+  }
+  
+  .modal-content {
+    @apply mx-2 max-w-none;
+  }
+}
+
+/* Styles pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible pour l'accessibilité au clavier */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  @apply ring-offset-white dark:ring-offset-gray-900;
+}
+
+/* Styles pour les états de chargement */
+.loading-skeleton {
+  @apply animate-pulse bg-gray-300 dark:bg-gray-700;
+}
+
+.loading-spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300;
+  @apply border-t-blue-600 dark:border-gray-600 dark:border-t-blue-400;
+}
+
+/* Styles pour les états d'erreur */
+.error-state {
+  @apply text-red-600 dark:text-red-400;
+  @apply bg-red-50 dark:bg-red-900/20;
+  @apply border border-red-200 dark:border-red-800;
+}

@@ -1,0 +1,10 @@
+export const CONSULTATION_CONFIG = {
+  DEFAULT_DURATION: 20, // minutes
+  MAX_CONCURRENT_CONSULTATIONS: 5,
+  VIDEO_QUALITY_LEVELS: ['SD', 'HD', '4K'],
+  BANDWIDTH_REQUIREMENTS: {
+    SD: 1.0,
+    HD: 2.5,
+    '4K': 5.0
+  }
+};
